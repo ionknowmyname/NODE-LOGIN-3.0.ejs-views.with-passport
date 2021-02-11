@@ -38,7 +38,7 @@ router.post('/register', (req, res) => {
             } else {
                 // encrypt password & submit, return any error
                 bcrypt.hash(req.body.password, 10, function(err, hashedPass){
-                    if(err){  errors.push({ msg: err }) }   // try throw err;
+                    if(err){ errors.push({ msg: err }) }   // try throw err;
 
                     let user = new User({
                         name,  // coz its same as name: name; ES6 syntax
