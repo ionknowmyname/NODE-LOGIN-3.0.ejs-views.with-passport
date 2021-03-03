@@ -2,9 +2,10 @@ const express = require("express");
 const mongoose = require('mongoose');
 // const bodyparser = require("body-parser");   // bodyparser now included in express
 const expressLayouts = require("express-ejs-layouts");
-const flash = require("connect-flash");
 const session = require("express-session");
 const passport  = require("passport");
+const flash = require("connect-flash");
+const methodOverride = require('method-override')
 
 const IndexRoute = require('./routes/index')
 const UsersRoute = require('./routes/users')
@@ -31,6 +32,10 @@ app.set('view engine', 'ejs');
 
 //////////// Bodyparser middleware //////////////
 app.use(express.urlencoded({ extended: true }));   
+/////////////////////////////////////////////////
+
+//////////// method Override middleware //////////////
+app.use(methodOverride('_method'))   // to override post method in forms to delete
 /////////////////////////////////////////////////
 
 

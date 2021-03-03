@@ -19,11 +19,15 @@
                     <td><%= row.email %></td>
                     <td><%= row.phone %></td> 
                     <td>
-                        <!-- <a href="/employee/<% this._id %>"><i class="fa fa-filter fa-lg" aria-hidden="true"></i></a> -->
-                        <a href="/delete/<% this._id %>"
-                            onclick="return confirm('Are you sure you want to delete this record?')"><i
+                        <a href="/users/register/<%= row._id %>"><i class="fa fa-filter fa-lg" aria-hidden="true"></i></a>
+                        <form action="/delete/<%= row._id %>?_method=DELETE" method="post">
+                            
+                            <button
+                                type="submit"
+                                onclick="return confirm('Are you sure you want to delete this record?')"><i
                                 class="fa fa-trash fa-lg" aria-hidden="true"></i>
-                        </a>
+                            </button>
+                        </form>        
                     </td>
                 </tr>
             <% }) %>
